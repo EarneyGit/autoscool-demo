@@ -1,0 +1,17 @@
+# Exclude admin dashboard from deployment
+backend/admin/
+
+# Exclude development files
+node_modules/
+.env.local
+.env.development
+*.log
+
+# Exclude documentation
+README.md
+RETELL_INTEGRATION.md
+
+# Exclude package-lock files (Vercel will generate its own)
+package-lock.json
+frontend/package-lock.json
+backend/package-lock.json
