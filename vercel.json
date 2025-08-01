@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "npm run vercel:build --prefix frontend",
-  "outputDirectory": "frontend/dist",
-  "installCommand": "npm install && cd frontend && npm install",
+  "buildCommand": "npm run vercel:build --prefix polymet-swiss-driving-school/frontend",
+  "outputDirectory": "polymet-swiss-driving-school/frontend/dist",
+  "installCommand": "npm install && cd polymet-swiss-driving-school && npm install && cd frontend && npm install",
   "framework": null,
   "rewrites": [
     {
