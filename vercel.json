@@ -2,7 +2,7 @@
   "version": 2,
   "buildCommand": "npm run vercel:build --prefix frontend",
   "outputDirectory": "frontend/dist",
-  "installCommand": "npm install && npm install --prefix frontend",
+  "installCommand": "npm install && cd frontend && npm install",
   "framework": null,
   "rewrites": [
     {
