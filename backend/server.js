@@ -75,8 +75,14 @@ app.use('*', (req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📊 Admin Dashboard: http://localhost:${PORT}/api/health`);
-  // Server restarted to fix Content Manager issues
-});
+// Export the app for Vercel serverless functions
+module.exports = app;
+
+// Only start the server if this file is run directly (not imported)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`📊 Admin Dashboard: http://localhost:${PORT}/api/health`);
+    // Server restarted to fix Content Manager issues
+  });
+}
