@@ -42,16 +42,19 @@ class RetellService {
   async registerCall(): Promise<string> {
     try {
       // Call backend API to register the call with Retell
-      const response = await fetch('http://localhost:8000/api/retell/register-call', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          agent_id: this.AGENT_ID,
-          llm_id: this.LLM_ID,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/retell/register-call`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            agent_id: this.AGENT_ID,
+            llm_id: this.LLM_ID,
+          }),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();

@@ -50,7 +50,7 @@ const FormEditor = ({ isOpen, onClose, onSave }) => {
   const loadFormConfig = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:8000/api/forms/config');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/forms/config`);
       if (response.data.success) {
         setConfig(response.data.data);
       } else {
@@ -66,7 +66,7 @@ const FormEditor = ({ isOpen, onClose, onSave }) => {
 
   const loadFieldTypes = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/forms/fields');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/forms/fields`);
       if (response.data.success) {
         setFieldTypes(response.data.data);
       }
@@ -77,7 +77,7 @@ const FormEditor = ({ isOpen, onClose, onSave }) => {
 
   const validateForm = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/api/forms/validate', {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/forms/validate`, {
         fields: config.fields
       });
       if (response.data.success) {
@@ -91,7 +91,10 @@ const FormEditor = ({ isOpen, onClose, onSave }) => {
   const saveFormConfig = async () => {
     setSaving(true);
     try {
-      const response = await axios.put('http://localhost:8000/api/forms/config', config);
+      const response = await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/forms/config`,
+        config
+      );
       if (response.data.success) {
         toast.success('Form configuration saved successfully!');
         queryClient.invalidateQueries(['forms']);

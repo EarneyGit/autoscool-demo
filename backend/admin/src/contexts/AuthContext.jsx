@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 const AuthContext = createContext({});
 
 // Configure axios defaults
-axios.defaults.baseURL = 'http://localhost:8000/api';
+axios.defaults.baseURL = `${import.meta.env.VITE_API_URL}/api`;
 
 // Add request interceptor to include auth token
 axios.interceptors.request.use(
