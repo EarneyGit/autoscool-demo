@@ -14,11 +14,11 @@ export default ({ mode }) => {
       },
     },
     server: {
-      port: parseInt(import.meta.env.VITE_PORT || "3001", 10),
+      port: parseInt(env.VITE_PORT || "3001", 10),
       host: true,
       proxy: {
         "/api": {
-          target: import.meta.env.VITE_API_URL || "http://localhost:8000",
+          target: env.VITE_API_URL || "http://localhost:8000",
           changeOrigin: true,
           secure: false,
         },
